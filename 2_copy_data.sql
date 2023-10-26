@@ -1,0 +1,1 @@
+COPY consumer_complaints FROM 'xxx' DELIMITER ',' CSV HEADER;
