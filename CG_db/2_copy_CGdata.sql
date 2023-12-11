@@ -1,0 +1,1 @@
+COPY console_games FROM 'C:\Users\Ance Tetere\Documents\SQL\PostgreSQL\data\P9-ConsoleGames.csv' DELIMITER ',' CSV HEADER;

@@ -1,4 +1,6 @@
-2_copy_data.sql
+CC_db\2_copy_data.sql
 README.md
 data/
 tasks_and_uploads/
+CG_db\2_copy_CGdata.sql
+CG_db\4_copy_CDdata.sql
