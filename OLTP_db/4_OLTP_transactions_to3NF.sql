@@ -1,0 +1,62 @@
+-- CHECK 3NF
+SELECT *
+FROM customers;
+-- 3NF CONFIRMED
+
+SELECT *
+FROM transactions;
+
+-- TRANSITIVE DEPENDENCIES NEED TO BE SEPARATED INTO THEIR OWN TABLE
+CREATE TABLE tmp AS
+SELECT item,
+       description,
+	   retail_price
+FROM transactions;
+--3455
+
+-- ASSESSING DUPLICATES
+SELECT *
+FROM tmp;
+
+SELECT COUNT (*)
+FROM tmp;
+
+SELECT COUNT (*)
+FROM (
+	SELECT DISTINCT *
+	FROM tmp
+);
+
+-- TO MAKE TMP INTO 1NF - REMOVE DUPLICATE ROWS
+CREATE TABLE items AS
+SELECT DISTINCT *
+FROM tmp;
+-- 126
+
+-- CHECK items TABLE
+SELECT *
+FROM items;
+-- 3NF confirmed
+
+--REMOVE THE EXTRACTED ROWS FROM THE transactions TABLE
+-- BUT KEEP THE FOREIGN KEY "ITEM"
+ALTER TABLE transactions
+DROP COLUMN description,
+DROP COLUMN retail_price;
+
+SELECT *
+FROM transactions;
+-- 3NF CONFIRMED
+
+DROP TABLE tmp;
+
+
+
+
+
+
+
+
+
+
+
